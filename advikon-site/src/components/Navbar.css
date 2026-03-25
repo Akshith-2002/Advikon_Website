@@ -99,15 +99,15 @@
   font-size: 0.875rem;
 }
 
-/* ===== HAMBURGER — visible by default, hidden on large screens ===== */
+/* ===== HAMBURGER — hidden by default, shown on mobile ===== */
 .menu-toggle {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1300;
   padding: 8px;
   line-height: 0;
   -webkit-tap-highlight-color: transparent;
@@ -115,7 +115,7 @@
 
 /* ===== MOBILE DRAWER ===== */
 .drawer-backdrop {
-  display: block;
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
@@ -131,7 +131,7 @@
 }
 
 .drawer {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 0;
@@ -198,12 +198,7 @@
 /* ===== DESKTOP: 1025px+ — hide hamburger, show nav links ===== */
 @media (min-width: 1025px) {
   .menu-toggle {
-    display: none;
-  }
-
-  .drawer,
-  .drawer-backdrop {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -215,6 +210,18 @@
 
   .nav-cta-desktop {
     display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .drawer-backdrop {
+    display: block;
+  }
+
+  .drawer {
+    display: flex;
   }
 
   .navbar {
