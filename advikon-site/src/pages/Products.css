@@ -106,6 +106,97 @@
   color: var(--dark);
 }
 
+/* ===== MACHINE SPECS TABLE ===== */
+.machine-specs-table {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.spec-row {
+  display: flex;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-row:nth-child(even) {
+  background: var(--gray-50);
+}
+
+.spec-label {
+  font-weight: 600;
+  color: var(--dark);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.spec-value {
+  color: var(--gray-600);
+}
+
+/* ===== ADDITIONAL MACHINES ===== */
+.additional-machines-section {
+  background: var(--gray-50);
+}
+
+.additional-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.additional-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.additional-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(21, 101, 192, 0.2);
+}
+
+.additional-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(21, 101, 192, 0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.additional-card:hover .additional-icon {
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+.additional-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.additional-card p {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
 /* ===== HIGHLIGHTS ===== */
 .highlights-section {
   background: var(--gray-50);
@@ -308,6 +399,8 @@
   .machine-info h2 { font-size: 1.5rem; }
   .machine-visual-box { min-height: 180px; padding: 32px; }
   .highlights-grid { grid-template-columns: 1fr; }
+  .additional-grid { grid-template-columns: 1fr; }
+  .spec-label { min-width: 90px; }
   .highlight-card { padding: 24px; }
 
   .retrofit-grid { grid-template-columns: 1fr; gap: 32px; }

@@ -22,24 +22,73 @@ const machines = [
     title: 'Combo Vending Machine',
     subtitle: 'Snack & Beverage Combined',
     desc: 'Our most versatile unit — dispenses both snacks and beverages from a single intelligent machine. Ideal for corporate offices, hospitals, universities, and high-traffic locations.',
-    features: ['3-Wide / 4-Wide / 5-Wide options', 'With & Without Storage', 'Optional 10" to 32" Touch Screen', 'LCD Display & Keypad options'],
+    features: ['3-Wide / 4-Wide / 5-Wide options', 'With & Without Storage', 'Optional 10" to 32" Touch Screen', 'LCD Display & Keypad options', 'Multi-vend capability'],
     tag: 'Most Popular',
+    specs: [
+      { label: 'Type', value: 'Spiral / Coil-based dispensing' },
+      { label: 'Product Type', value: 'Snack / Chocolates / Cookies / Tetra / Bottle / Can / PET etc' },
+      { label: 'Capacity', value: '300 to 480 drinks based on product size' },
+      { label: 'Temperature', value: '4°C to 18°C (cold)' },
+      { label: 'Cooling', value: 'Compressor-based refrigeration' },
+      { label: 'Power', value: '300W – 750W' },
+      { label: 'Supply', value: '220–240V AC, 50Hz, 5 Amp' },
+      { label: 'Weight', value: '250 – 400 kgs' },
+    ],
   },
   {
     svg: <BeverageMachineSVG width={210} height={310} />,
     title: 'Beverage Vending Machine',
     subtitle: 'Dedicated Beverage Dispensing',
     desc: 'Optimized for cold beverage dispensing with advanced air-cooled refrigeration using R134a gas. Perfect for factories, retail spaces, and transport hubs.',
-    features: ['Air-Cooled Refrigeration (R134a)', 'Plug & Play Cooling Unit', 'High Efficiency Design', 'Multiple Configuration Options'],
+    features: ['4-7 adjustable trays', 'Air-Cooled Refrigeration (R134a)', 'Plug & Play Cooling Unit', 'Multiple Configuration Options', 'Multi-vend capability'],
     tag: 'Beverages',
+    specs: [
+      { label: 'Type', value: 'Spiral / Coil-based dispensing' },
+      { label: 'Product Type', value: 'Bottle / Can / PET / Tetra / Pouch / Cold Beverage' },
+      { label: 'Trays', value: '4-7 adjustable trays' },
+      { label: 'Capacity', value: '300 to 480 drinks based on product size' },
+      { label: 'Temperature', value: '4°C to 18°C (cold)' },
+      { label: 'Cooling', value: 'Compressor-based refrigeration' },
+      { label: 'Power', value: '300W – 750W' },
+      { label: 'Supply', value: '220–240V AC, 50Hz, 5 Amp' },
+      { label: 'Weight', value: '200 – 300 kgs' },
+    ],
   },
   {
     svg: <SnackMachineSVG width={220} height={310} />,
     title: 'Snack Vending Machine',
     subtitle: 'High-Capacity Snack Dispensing',
     desc: 'Engineered for maximum capacity with mechanically slanted trays for easy refilling. Supports up to 100 motors for diverse product offerings.',
-    features: ['Supports up to 100 Motors', 'Slanted Tray Design', '3-Axis Precision Adjustment', 'Anti-theft Bin Design'],
+    features: ['4-7 adjustable trays', 'Supports up to 100 Motors', 'Slanted Tray Design', '3-Axis Precision Adjustment', 'Multi-vend capability'],
     tag: 'Snacks',
+    specs: [
+      { label: 'Type', value: 'Spiral / Coil-based dispensing' },
+      { label: 'Product Type', value: 'Chips, Namkeens, chocolates, biscuits, packaged food' },
+      { label: 'Trays', value: '4-7 adjustable trays' },
+      { label: 'Capacity', value: '200 to 500 snacks based on product size' },
+      { label: 'Temperature', value: '22°C to 32°C (Ambient)' },
+      { label: 'Power', value: '200W – 250W' },
+      { label: 'Supply', value: '220–240V AC, 50Hz, 5 Amp' },
+      { label: 'Weight', value: '200 – 250 kgs' },
+    ],
+  },
+];
+
+const additionalMachines = [
+  {
+    title: 'AI-Based Smart Refrigerator',
+    desc: 'AI-powered smart cooling with intelligent inventory management and predictive restocking.',
+    icon: <HiOutlineChip />,
+  },
+  {
+    title: 'Sanitary Napkin Vending Machine',
+    desc: 'Compact, reliable dispenser designed for schools, colleges, offices, and public facilities.',
+    icon: <HiOutlineCube />,
+  },
+  {
+    title: 'Customized Machines',
+    desc: 'Tailor-made vending solutions designed and built as per specific client requirements.',
+    icon: <HiOutlineCog />,
   },
 ];
 
@@ -78,7 +127,7 @@ export default function Products() {
     <main>
       <SEOHead
         title="Products"
-        description="Advikon smart vending machines — combo, beverage, and snack configurations. 3-wide to 5-wide, IoT-enabled, with optional touch screens. 100% Made in India."
+        description="Advikon smart vending machines — combo, beverage, snack, AI smart refrigerator, sanitary napkin, and customized configurations. IoT-enabled, 100% Made in India."
       />
       {/* Header */}
       <section className="page-header">
@@ -86,8 +135,8 @@ export default function Products() {
           <span className="section-label" data-aos="fade-up">Our Products</span>
           <h1 className="page-title" data-aos="fade-up" data-aos-delay="100">Future-Ready Smart<br />Vending Solutions</h1>
           <p className="page-desc">
-            Intelligent, modular, and retrofit-compatible vending machines engineered
-            for operational excellence. Available in multiple configurations for every location.
+            Advikon offers a complete range of vending solutions including snack, beverage, and combo machines
+            designed for high efficiency, smart monitoring, and maximum revenue generation.
           </p>
         </div>
       </section>
@@ -108,7 +157,18 @@ export default function Products() {
                       <li key={f}><HiCheck className="check-icon" /> {f}</li>
                     ))}
                   </ul>
-                  <Link to="/contact" className="btn btn-primary" style={{ marginTop: 8 }}>
+
+                  {/* Inline specs table */}
+                  <div className="machine-specs-table">
+                    {m.specs.map((spec) => (
+                      <div key={spec.label} className="spec-row">
+                        <span className="spec-label">{spec.label}</span>
+                        <span className="spec-value">{spec.value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link to="/contact" className="btn btn-primary" style={{ marginTop: 16 }}>
                     Request Quote <HiArrowRight />
                   </Link>
                 </div>
@@ -117,6 +177,31 @@ export default function Products() {
                     {m.svg}
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Machine Types */}
+      <section className="section additional-machines-section">
+        <div className="container">
+          <div className="text-center" data-aos="fade-up">
+            <span className="section-label">Also Available</span>
+            <h2 className="section-title">More Vending Solutions</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
+              Customized machines built for specific business needs and unique deployment scenarios.
+            </p>
+          </div>
+          <div className="additional-grid">
+            {additionalMachines.map((m, i) => (
+              <div key={m.title} className="additional-card" data-aos="fade-up" data-aos-delay={i * 100}>
+                <div className="additional-icon">{m.icon}</div>
+                <h3>{m.title}</h3>
+                <p>{m.desc}</p>
+                <Link to="/contact" className="product-link">
+                  Enquire Now <HiArrowRight className="btn-arrow" />
+                </Link>
               </div>
             ))}
           </div>
@@ -181,7 +266,7 @@ export default function Products() {
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, marginBottom: 32 }}>
                 Advikon machines are designed to support both new deployments and
-                modernization of existing machines. No need to replace your entire fleet.
+                modernization of existing machines. Plug & play compatibility of MDB devices.
               </p>
               <Link to="/contact" className="btn btn-primary">
                 Learn More <HiArrowRight />
@@ -194,6 +279,7 @@ export default function Products() {
                 'Electronics & VMC Compatibility',
                 'Software Platform Compatibility',
                 'Mechanical Hardware Adaptability',
+                'Plug & Play MDB Device Support',
               ].map((item) => (
                 <div key={item} className="retrofit-item">
                   <HiCheck className="retrofit-check-icon" />

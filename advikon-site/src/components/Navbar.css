@@ -31,7 +31,7 @@
 }
 
 .logo-img {
-  height: 48px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   border-radius: 8px;
@@ -44,15 +44,21 @@
 }
 
 .logo-text {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--dark);
-  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, #1565C0, #00ACC1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 4px;
 }
 
 .navbar:not(.scrolled) .logo-text {
-  color: var(--white);
+  background: linear-gradient(135deg, #ffffff, #e0f7fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ===== DESKTOP NAV LINKS ===== */
@@ -220,7 +226,10 @@
 
   .navbar .logo-text,
   .navbar:not(.scrolled) .logo-text {
-    color: #000000;
+    background: linear-gradient(90deg, #1565C0, #00ACC1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .navbar .logo-img,

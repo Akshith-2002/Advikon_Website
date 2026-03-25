@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: <HiPhone />,
     label: 'Phone',
-    value: '+91-9818745239',
-    href: 'tel:+919818745239',
+    value: '+91 97176 90156',
+    href: 'tel:+919717690156',
   },
   {
     icon: <HiMail />,

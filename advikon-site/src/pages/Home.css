@@ -166,6 +166,160 @@
   font-weight: 500;
 }
 
+/* ===== OUR SOLUTIONS ===== */
+.solutions-section {
+  background: var(--gray-50);
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.solution-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.solution-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(21, 101, 192, 0.2);
+}
+
+.solution-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(21, 101, 192, 0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin: 0 auto 16px;
+  transition: all 0.3s ease;
+}
+
+.solution-card:hover .solution-icon {
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+.solution-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.solution-card p {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+}
+
+/* ===== WHY CHOOSE + IOT ===== */
+.why-iot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.iot-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.services-block {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.services-block h4 {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+/* ===== OUR TECHNOLOGY ===== */
+.tech-section {
+  background: var(--gray-50);
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tech-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(21, 101, 192, 0.2);
+}
+
+.tech-card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(21, 101, 192, 0.08);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-card-icon {
+  background: var(--gradient-primary);
+  color: var(--white);
+}
+
+.tech-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.tech-card-subtitle {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.tech-card-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-card-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
 /* ===== ABOUT PREVIEW ===== */
 .about-preview-grid {
   display: grid;
@@ -737,6 +891,15 @@
 
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 
+  .solutions-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .why-iot-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
+
   .about-preview-grid,
   .made-india-grid {
     grid-template-columns: 1fr;
@@ -781,6 +944,9 @@
   .stat-card { padding: 20px 16px; }
   .stat-number { font-size: 2rem; }
 
+  .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: 1fr; }
+
   .products-grid,
   .features-grid {
     grid-template-columns: 1fr;
@@ -813,6 +979,9 @@
   .stats-section { margin-top: -20px; }
   .stat-number { font-size: 1.75rem; }
   .stat-label { font-size: 0.8rem; }
+
+  .solutions-grid { grid-template-columns: 1fr; }
+  .tech-card { padding: 20px; }
 
   .about-checklist li { font-size: 0.85rem; }
 

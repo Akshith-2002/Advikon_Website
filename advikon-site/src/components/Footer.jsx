@@ -46,8 +46,8 @@ export default function Footer() {
           </div>
           <div className="ft-info-col">
             <h4>Get in Touch</h4>
-            <a href="tel:+919818745239" className="ft-contact-item">
-              <HiPhone /> +91-9818745239
+            <a href="tel:+919717690156" className="ft-contact-item">
+              <HiPhone /> +91 97176 90156
             </a>
             <a href="mailto:pankaj.kumar@advikon.in" className="ft-contact-item">
               <HiMail /> pankaj.kumar@advikon.in

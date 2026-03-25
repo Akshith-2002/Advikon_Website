@@ -8,6 +8,10 @@ import {
   HiOutlineCloudUpload,
   HiOutlineLightningBolt,
   HiOutlineGlobe,
+  HiOutlineDesktopComputer,
+  HiOutlineCreditCard,
+  HiOutlineCube,
+
   HiArrowRight,
   HiCheck,
   HiStar,
@@ -21,44 +25,134 @@ import MadeInIndiaSVG from '../assets/MadeInIndiaSVG';
 import CountUp from '../components/CountUp';
 import './Home.css';
 
-const features = [
+const stats = [
+  { number: 17, suffix: '+', label: 'Years of Expertise' },
+  { number: 100, suffix: '', label: 'Motors Supported', prefix: 'Up to ' },
+  { number: 100, suffix: '%', label: 'Made in India' },
+  { number: 10, suffix: '+', label: 'Product Categories' },
+];
+
+const solutions = [
   {
-    icon: <HiOutlineChip />,
-    title: 'Intelligent Electronics',
-    desc: '24V DC Intelligent VMC with IoT system, faulty motor detection, and smart sensor alerts.',
-  },
-  {
-    icon: <HiOutlineShieldCheck />,
-    title: 'Enhanced Security',
-    desc: 'Anti-theft bin design, dual lock provision (mechanical + electrical), and surge protection.',
-  },
-  {
-    icon: <HiOutlineCog />,
-    title: 'Modular Design',
-    desc: '3-Axis precision tray adjustment, supports up to 100 motors, quick assembly & disassembly.',
-  },
-  {
-    icon: <HiOutlineCloudUpload />,
-    title: 'Remote Management',
-    desc: 'Remote On/Off, configuration, dispensing, error fixing, and real-time temperature alerts.',
-  },
-  {
-    icon: <HiOutlineLightningBolt />,
-    title: 'Electrical Safety',
-    desc: 'Surge, short circuit, overvoltage, and overload protection with FRLS-grade internal wiring.',
+    icon: <HiOutlineCube />,
+    title: 'Smart Vending Machines',
+    desc: 'Automated retail systems for snacks, beverages, and customized products.',
   },
   {
     icon: <HiOutlineGlobe />,
-    title: 'Retrofit Compatible',
-    desc: 'Designed to modernize existing machines — compatible across motors, electronics, and software.',
+    title: 'IoT-Enabled Monitoring',
+    desc: 'Track sales, stock, machine health, and alerts in real-time.',
+  },
+  {
+    icon: <HiOutlineCreditCard />,
+    title: 'Cashless Payment Integration',
+    desc: 'UPI, DC/CC Cards, Net banking, QR, POS, RFID, and wallet-based transactions.',
+  },
+  {
+    icon: <HiOutlineCog />,
+    title: 'Custom Machine Development',
+    desc: 'Tailor-made vending solutions for unique business needs.',
+  },
+  {
+    icon: <HiOutlineDesktopComputer />,
+    title: 'Enterprise Solutions',
+    desc: 'Bulk deployment, centralized control, and ERP integration.',
   },
 ];
 
-const stats = [
-  { number: 17, suffix: '+', label: 'Years of Expertise' },
-  { number: 100, suffix: '+', label: 'Motors Supported' },
-  { number: 100, suffix: '%', label: 'Made in India' },
-  { number: 3, suffix: '', label: 'Product Categories' },
+const whyChoose = [
+  'In-house design & manufacturing',
+  'Advanced IoT platform',
+  'Strong after-sales support',
+  'Scalable architecture',
+  'Competitive pricing',
+];
+
+const iotFeatures = [
+  'Live machine monitoring',
+  'Sales & audit reports',
+  'Remote configuration',
+  'API-based integration',
+  'Cloud dashboard access',
+];
+
+const services = [
+  'Installation & commissioning',
+  'SaaS, AMC & maintenance',
+  'Remote troubleshooting',
+  'Spare parts & upgrades',
+];
+
+const techStack = [
+  {
+    icon: <HiOutlineGlobe />,
+    title: 'IoT (Internet of Things)',
+    subtitle: 'Enables monitoring & control from anywhere',
+    items: ['Machines connected to cloud via 4G/WiFi', 'Real-time data: sales, stock, machine health', 'Remote control & diagnostics', 'Support M2M Sim'],
+  },
+  {
+    icon: <HiOutlineChip />,
+    title: 'Embedded Electronics & Firmware',
+    subtitle: 'Acts as the brain of the machine',
+    items: ['Microcontroller / PCB-based system', 'Motor control, sensors, safety logic', 'Support up to 100 motors', 'Payment + dispensing control'],
+  },
+  {
+    icon: <HiOutlineCloudUpload />,
+    title: 'Cloud Software & Dashboard',
+    subtitle: 'Converts machines into data-driven business tools',
+    items: ['Centralized monitoring system', 'Sales reports & analytics', 'Alerts (low stock, faults)', 'API integration'],
+  },
+  {
+    icon: <HiOutlineCreditCard />,
+    title: 'Cashless Payment Technology',
+    subtitle: 'Enables contactless & seamless transactions',
+    items: ['UPI / Debit & Credit Cards / Net Banking / QR / POS / RFID / Wallet', 'Real-time payment validation', 'Instant Auto refund'],
+  },
+  {
+    icon: <HiOutlineDesktopComputer />,
+    title: 'Automation & Smart Retail Logic',
+    subtitle: 'Part of next-gen automated retail systems',
+    items: ['Auto vending (no manpower)', 'SKU-level inventory tracking', 'Batch & Expiry Tracking', 'Intelligent alerts & operations', 'Advertisement-Enabled Display'],
+  },
+  {
+    icon: <HiOutlineLightningBolt />,
+    title: 'Mechanical + Electrical Engineering',
+    subtitle: 'Ensures reliability & durability',
+    items: ['Robust cabinet design', 'Motor mechanisms (spiral, elevator, etc.)', 'Optional 10" to 32" touch screens, LCD displays, or keypad-based UI', 'Refrigeration & power systems'],
+  },
+];
+
+const features = [
+  {
+    icon: <HiOutlineChip />,
+    title: 'Real-time Inventory Tracking',
+    desc: 'SKU-level control with batch, expiry, and barcode tracking for complete visibility.',
+  },
+  {
+    icon: <HiOutlineShieldCheck />,
+    title: 'Electrical Safety',
+    desc: 'Surge, shock, short circuit, overvoltage, and overload protection built into every unit.',
+  },
+  {
+    icon: <HiOutlineCog />,
+    title: 'Retrofit Compatible',
+    desc: 'Plug & play compatibility of MDB devices — modernize existing machines without full replacement.',
+  },
+  {
+    icon: <HiOutlineCloudUpload />,
+    title: 'Remote Diagnostics & Alerts',
+    desc: 'Real-time monitoring with remote On/Off, configuration, error fixing, and temperature alerts.',
+  },
+  {
+    icon: <HiOutlineLightningBolt />,
+    title: 'Energy-Efficient Design',
+    desc: 'LED illumination, efficient compressor systems, and smart power management.',
+  },
+  {
+    icon: <HiOutlineGlobe />,
+    title: 'User-Friendly Interface',
+    desc: 'Optional 10" to 32" Android touch screens, LCD displays, or keypad-based UI systems.',
+  },
 ];
 
 const products = [
@@ -119,24 +213,24 @@ const testimonials = [
 
 const faqs = [
   {
-    q: 'What configurations are available for Advikon vending machines?',
-    a: 'We offer 3-Wide, 4-Wide, and 5-Wide configurations — each available with or without storage and with optional 10" to 32" Android touch screens or LCD Display & Metal Keypad.',
+    q: 'What types of vending machines does Advikon offer?',
+    a: 'We offer Snack, Beverage, Combo, AI-based Smart Refrigerator, Sanitary Napkin, and fully Customized Machines as per client requirements.',
   },
   {
     q: 'Are Advikon machines compatible with my existing infrastructure?',
-    a: 'Yes. Our machines are designed to be retrofit-compatible — supporting multiple spiral motors, electrical systems, electronics/VMC platforms, software systems, and mechanical hardware from existing setups.',
+    a: 'Yes. Our machines feature plug & play compatibility of MDB devices and are designed to be retrofit-compatible — supporting multiple spiral motors, electrical systems, electronics/VMC platforms, software systems, and mechanical hardware from existing setups.',
   },
   {
     q: 'What kind of remote monitoring is available?',
-    a: 'Our IoT-based system provides remote On/Off control, configuration, dispensing, error fixing, motor testing, vend sensor alerts, door sensor alerts, and real-time temperature monitoring.',
+    a: 'Our IoT-based system provides live machine monitoring, sales & audit reports, remote configuration, API-based integration, and cloud dashboard access.',
   },
   {
     q: 'What electrical protections do the machines include?',
-    a: 'Complete protection suite: surge & short circuit protection, overvoltage, shock, overload & over-temperature protection, VMC safety shielding, FRLS-grade wiring, and ISI-marked industrial grade power cable.',
+    a: 'Complete protection suite: surge, shock, short circuit, overvoltage, and overload protection with FRLS-grade wiring and ISI-marked industrial grade components.',
   },
   {
-    q: 'Where can Advikon machines be deployed?',
-    a: 'Our machines are designed for corporate offices, hospitals, universities, factories, retail spaces, institutions, transport hubs, and any high-traffic location requiring automated vending.',
+    q: 'What payment methods are supported?',
+    a: 'UPI, Debit & Credit Cards, Net Banking, QR codes, POS terminals, RFID, and wallet-based transactions with real-time validation and instant auto refund.',
   },
 ];
 
@@ -191,9 +285,93 @@ export default function Home() {
             {stats.map((s, i) => (
               <div key={s.label} className="stat-card" data-aos="fade-up" data-aos-delay={i * 100}>
                 <span className="stat-number">
-                  <CountUp end={s.number} suffix={s.suffix} />
+                  {s.prefix || ''}<CountUp end={s.number} suffix={s.suffix} />
                 </span>
                 <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Solutions */}
+      <section className="section solutions-section">
+        <div className="container">
+          <div className="text-center" data-aos="fade-up">
+            <span className="section-label">Our Solutions</span>
+            <h2 className="section-title">Smart Retail Ecosystem</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
+              End-to-end vending solutions from automated machines to enterprise-grade IoT monitoring and cashless payments.
+            </p>
+          </div>
+          <div className="solutions-grid">
+            {solutions.map((s, i) => (
+              <div key={s.title} className="solution-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="solution-icon">{s.icon}</div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Advikon + IoT */}
+      <section className="section why-iot-section">
+        <div className="container why-iot-grid">
+          <div className="why-choose-block" data-aos="fade-right">
+            <span className="section-label">Why Choose Advikon</span>
+            <h2 className="section-title">Innovation Meets Reliability</h2>
+            <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+              We don't just build machines — we build smart retail ecosystems.
+            </p>
+            <ul className="about-checklist">
+              {whyChoose.map((item) => (
+                <li key={item}><HiCheck className="check-icon" /> {item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="iot-block" data-aos="fade-left">
+            <span className="section-label">IoT & Software</span>
+            <h3 className="iot-title">Control Everything, Anywhere</h3>
+            <ul className="about-checklist">
+              {iotFeatures.map((item) => (
+                <li key={item}><HiCheck className="check-icon" /> {item}</li>
+              ))}
+            </ul>
+            <div className="services-block">
+              <h4>Services & Support</h4>
+              <ul className="about-checklist">
+                {services.map((item) => (
+                  <li key={item}><HiCheck className="check-icon" /> {item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Technology */}
+      <section className="section tech-section">
+        <div className="container">
+          <div className="text-center" data-aos="fade-up">
+            <span className="section-label">Our Technology</span>
+            <h2 className="section-title">Core Technology Stack</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
+              Advikon's technology stack integrates embedded systems, IoT connectivity, cloud analytics, and digital payment infrastructure.
+            </p>
+          </div>
+          <div className="tech-grid">
+            {techStack.map((t, i) => (
+              <div key={t.title} className="tech-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="tech-card-icon">{t.icon}</div>
+                <h3>{t.title}</h3>
+                <p className="tech-card-subtitle">{t.subtitle}</p>
+                <ul className="tech-card-items">
+                  {t.items.map((item) => (
+                    <li key={item}><HiCheck className="check-icon" /> {item}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -234,8 +412,8 @@ export default function Home() {
             <span className="section-label">Our Products</span>
             <h2 className="section-title">Future-Ready Smart Vending Solutions</h2>
             <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
-              Intelligent, modular, and retrofit-compatible vending machines
-              engineered for operational excellence across diverse locations.
+              Snack, Beverage, Combo, AI-based Smart Refrigerator, Sanitary Napkin,
+              and Customized Machines as per client requirement.
             </p>
           </div>
           <div className="products-grid">
@@ -261,7 +439,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* Key Features */}
       <section className="section features-section">
         <div className="container">
           <div className="text-center" data-aos="fade-up">
@@ -304,8 +482,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          {/* Scrolling marquee row */}
           <div className="testimonials-marquee" data-aos="fade-up" data-aos-delay="150">
             <div className="testimonials-track">
               {[...testimonials, ...testimonials].map((t, i) => (
