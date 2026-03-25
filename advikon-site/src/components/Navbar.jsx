@@ -8,6 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -19,7 +20,6 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -33,41 +33,74 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
-      <div className="container navbar-inner">
-        <Link to="/" className="navbar-logo">
-          <img src={logo} alt="Advikon" className="logo-img" />
-          <span className="logo-text">ADVIKON</span>
-        </Link>
+    <>
+      {/* Top bar */}
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="container navbar-inner">
+          <Link to="/" className="navbar-logo">
+            <img src={logo} alt="Advikon" className="logo-img" />
+            <span className="logo-text">ADVIKON</span>
+          </Link>
 
-        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
+          {/* Desktop links */}
+          <ul className="navbar-links-desktop">
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <Link
+                  to={link.path}
+                  className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <Link to="/contact" className="btn btn-primary nav-cta-desktop">
+            Get a Quote
+          </Link>
+
+          <button
+            className="menu-toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <HiMenuAlt3 size={28} color="#000000" />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile drawer — outside navbar so it's not clipped */}
+      <div
+        className={`drawer-backdrop ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(false)}
+      />
+      <div className={`drawer ${menuOpen ? 'open' : ''}`}>
+        <button
+          className="drawer-close"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          <HiX size={24} />
+        </button>
+
+        <ul className="drawer-links">
           {navLinks.map((link) => (
             <li key={link.path}>
               <Link
                 to={link.path}
-                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                className={`drawer-link ${location.pathname === link.path ? 'active' : ''}`}
               >
                 {link.label}
               </Link>
             </li>
           ))}
-          <li className="nav-cta-mobile">
-            <Link to="/contact" className="btn btn-primary">Get a Quote</Link>
-          </li>
         </ul>
 
-        <Link to="/contact" className="btn btn-primary nav-cta-desktop">
+        <Link to="/contact" className="btn btn-primary drawer-cta" onClick={() => setMenuOpen(false)}>
           Get a Quote
         </Link>
-
-        <button
-          className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-        </button>
       </div>
-    </nav>
+    </>
   );
 }

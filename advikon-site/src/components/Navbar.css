@@ -1,3 +1,4 @@
+/* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -21,6 +22,7 @@
   justify-content: space-between;
 }
 
+/* ===== LOGO ===== */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -36,7 +38,6 @@
   mix-blend-mode: multiply;
 }
 
-/* On dark backgrounds (before scroll), make logo visible */
 .navbar:not(.scrolled) .logo-img {
   filter: brightness(1.2);
   mix-blend-mode: screen;
@@ -54,7 +55,8 @@
   color: var(--white);
 }
 
-.navbar-links {
+/* ===== DESKTOP NAV LINKS ===== */
+.navbar-links-desktop {
   display: flex;
   align-items: center;
   list-style: none;
@@ -91,80 +93,139 @@
   font-size: 0.875rem;
 }
 
-.nav-cta-mobile {
-  display: none;
-}
-
-.navbar:not(.scrolled) .menu-toggle {
-  color: var(--white);
-}
-
+/* ===== HAMBURGER — visible by default, hidden on large screens ===== */
 .menu-toggle {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
-  color: var(--dark);
   cursor: pointer;
   z-index: 1001;
+  padding: 8px;
+  line-height: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 768px) {
-  .navbar-links {
-    position: fixed;
-    inset: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: var(--white);
-    gap: 16px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
+/* ===== MOBILE DRAWER ===== */
+.drawer-backdrop {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 80vw;
+  background: var(--white);
+  z-index: 1200;
+  padding: 24px;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+.drawer.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.drawer-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  cursor: pointer;
+  padding: 8px;
+  line-height: 0;
+  margin-bottom: 24px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer-link {
+  display: block;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.drawer-link:hover,
+.drawer-link.active {
+  color: var(--primary);
+  background: rgba(21, 101, 192, 0.06);
+}
+
+.drawer-cta {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ===== DESKTOP: 1025px+ — hide hamburger, show nav links ===== */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: none;
   }
 
-  .navbar-links.open {
-    opacity: 1;
-    pointer-events: all;
+  .drawer,
+  .drawer-backdrop {
+    display: none;
   }
+}
 
-  /* Force dark text/icons in mobile menu regardless of scroll state */
-  .navbar-links .nav-link {
-    font-size: 1.25rem;
-    padding: 12px 32px;
-    color: var(--gray-600);
-  }
-
-  .navbar-links .nav-link:hover,
-  .navbar-links .nav-link.active {
-    color: var(--primary);
-    background: rgba(21, 101, 192, 0.06);
-  }
-
-  /* Fix logo and toggle visibility when menu is open over white bg */
-  .navbar.menu-open:not(.scrolled) .logo-text {
-    color: var(--dark);
-  }
-
-  .navbar.menu-open:not(.scrolled) .logo-img {
-    filter: none;
-    mix-blend-mode: multiply;
-  }
-
-  .navbar.menu-open:not(.scrolled) .menu-toggle {
-    color: var(--dark);
+/* ===== TABLET & MOBILE: up to 1024px — hide desktop nav, show hamburger ===== */
+@media (max-width: 1024px) {
+  .navbar-links-desktop {
+    display: none;
   }
 
   .nav-cta-desktop {
     display: none;
   }
 
-  .nav-cta-mobile {
-    display: block;
-    margin-top: 12px;
+  .navbar {
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
   }
 
-  .menu-toggle {
-    display: block;
+  .navbar .logo-text,
+  .navbar:not(.scrolled) .logo-text {
+    color: #000000;
+  }
+
+  .navbar .logo-img,
+  .navbar:not(.scrolled) .logo-img {
+    filter: none;
+    mix-blend-mode: normal;
   }
 }
