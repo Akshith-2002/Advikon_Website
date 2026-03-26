@@ -11,7 +11,10 @@ import {
   HiOutlineDesktopComputer,
   HiOutlineCreditCard,
   HiOutlineCube,
-
+  HiOutlineOfficeBuilding,
+  HiOutlineHeart,
+  HiOutlineAcademicCap,
+  HiOutlineShoppingCart,
   HiArrowRight,
   HiCheck,
   HiStar,
@@ -21,218 +24,82 @@ import IoTDashboardSVG from '../assets/IoTDashboardSVG';
 import ComboMachineSVG from '../assets/ComboMachineSVG';
 import BeverageMachineSVG from '../assets/BeverageMachineSVG';
 import SnackMachineSVG from '../assets/SnackMachineSVG';
-import MadeInIndiaSVG from '../assets/MadeInIndiaSVG';
+import SanitaryMachineSVG from '../assets/SanitaryMachineSVG';
+import SmartFridgeSVG from '../assets/SmartFridgeSVG';
+import CustomMachineSVG from '../assets/CustomMachineSVG';
 import CountUp from '../components/CountUp';
 import './Home.css';
 
-const stats = [
-  { number: 17, suffix: '+', label: 'Years of Expertise' },
-  { number: 100, suffix: '', label: 'Motors Supported', prefix: 'Up to ' },
-  { number: 100, suffix: '%', label: 'Made in India' },
-  { number: 10, suffix: '+', label: 'Product Categories' },
+/* ============================================================
+   DATA
+   ============================================================ */
+
+const trustStrip = [
+  { number: 17, suffix: '+', label: 'Years Vending Expertise' },
+  { label: 'Designed & Manufactured in India' },
+  { label: 'AI + IoT Enabled Systems' },
+  { label: 'End-to-End Solution Provider' },
 ];
 
-const solutions = [
-  {
-    icon: <HiOutlineCube />,
-    title: 'Smart Vending Machines',
-    desc: 'Automated retail systems for snacks, beverages, and customized products.',
-  },
-  {
-    icon: <HiOutlineGlobe />,
-    title: 'IoT-Enabled Monitoring',
-    desc: 'Track sales, stock, machine health, and alerts in real-time.',
-  },
-  {
-    icon: <HiOutlineCreditCard />,
-    title: 'Cashless Payment Integration',
-    desc: 'UPI, DC/CC Cards, Net banking, QR, POS, RFID, and wallet-based transactions.',
-  },
-  {
-    icon: <HiOutlineCog />,
-    title: 'Custom Machine Development',
-    desc: 'Tailor-made vending solutions for unique business needs.',
-  },
-  {
-    icon: <HiOutlineDesktopComputer />,
-    title: 'Enterprise Solutions',
-    desc: 'Bulk deployment, centralized control, and ERP integration.',
-  },
-];
-
-const whyChoose = [
-  'In-house design & manufacturing',
-  'Advanced IoT platform',
-  'Strong after-sales support',
-  'Scalable architecture',
-  'Competitive pricing',
-];
-
-const iotFeatures = [
-  'Live machine monitoring',
-  'Sales & audit reports',
-  'Remote configuration',
-  'API-based integration',
-  'Cloud dashboard access',
-];
-
-const services = [
-  'Installation & commissioning',
-  'SaaS, AMC & maintenance',
-  'Remote troubleshooting',
-  'Spare parts & upgrades',
-];
-
-const techStack = [
-  {
-    icon: <HiOutlineGlobe />,
-    title: 'IoT (Internet of Things)',
-    subtitle: 'Enables monitoring & control from anywhere',
-    items: ['Machines connected to cloud via 4G/WiFi', 'Real-time data: sales, stock, machine health', 'Remote control & diagnostics', 'Support M2M Sim'],
-  },
-  {
-    icon: <HiOutlineChip />,
-    title: 'Embedded Electronics & Firmware',
-    subtitle: 'Acts as the brain of the machine',
-    items: ['Microcontroller / PCB-based system', 'Motor control, sensors, safety logic', 'Support up to 100 motors', 'Payment + dispensing control'],
-  },
-  {
-    icon: <HiOutlineCloudUpload />,
-    title: 'Cloud Software & Dashboard',
-    subtitle: 'Converts machines into data-driven business tools',
-    items: ['Centralized monitoring system', 'Sales reports & analytics', 'Alerts (low stock, faults)', 'API integration'],
-  },
-  {
-    icon: <HiOutlineCreditCard />,
-    title: 'Cashless Payment Technology',
-    subtitle: 'Enables contactless & seamless transactions',
-    items: ['UPI / Debit & Credit Cards / Net Banking / QR / POS / RFID / Wallet', 'Real-time payment validation', 'Instant Auto refund'],
-  },
-  {
-    icon: <HiOutlineDesktopComputer />,
-    title: 'Automation & Smart Retail Logic',
-    subtitle: 'Part of next-gen automated retail systems',
-    items: ['Auto vending (no manpower)', 'SKU-level inventory tracking', 'Batch & Expiry Tracking', 'Intelligent alerts & operations', 'Advertisement-Enabled Display'],
-  },
-  {
-    icon: <HiOutlineLightningBolt />,
-    title: 'Mechanical + Electrical Engineering',
-    subtitle: 'Ensures reliability & durability',
-    items: ['Robust cabinet design', 'Motor mechanisms (spiral, elevator, etc.)', 'Optional 10" to 32" touch screens, LCD displays, or keypad-based UI', 'Refrigeration & power systems'],
-  },
-];
-
-const features = [
-  {
-    icon: <HiOutlineChip />,
-    title: 'Real-time Inventory Tracking',
-    desc: 'SKU-level control with batch, expiry, and barcode tracking for complete visibility.',
-  },
-  {
-    icon: <HiOutlineShieldCheck />,
-    title: 'Electrical Safety',
-    desc: 'Surge, shock, short circuit, overvoltage, and overload protection built into every unit.',
-  },
-  {
-    icon: <HiOutlineCog />,
-    title: 'Retrofit Compatible',
-    desc: 'Plug & play compatibility of MDB devices — modernize existing machines without full replacement.',
-  },
-  {
-    icon: <HiOutlineCloudUpload />,
-    title: 'Remote Diagnostics & Alerts',
-    desc: 'Real-time monitoring with remote On/Off, configuration, error fixing, and temperature alerts.',
-  },
-  {
-    icon: <HiOutlineLightningBolt />,
-    title: 'Energy-Efficient Design',
-    desc: 'LED illumination, efficient compressor systems, and smart power management.',
-  },
-  {
-    icon: <HiOutlineGlobe />,
-    title: 'User-Friendly Interface',
-    desc: 'Optional 10" to 32" Android touch screens, LCD displays, or keypad-based UI systems.',
-  },
+const coreOfferings = [
+  { icon: <HiOutlineCube />, title: 'In-house Machine Manufacturing', desc: 'Complete design-to-production under one roof.' },
+  { icon: <HiOutlineChip />, title: 'Custom Electronics & Controller Design', desc: 'Proprietary VMC, PCB, and firmware development.' },
+  { icon: <HiOutlineCloudUpload />, title: 'IoT & Cloud Software Platform', desc: 'Real-time monitoring, analytics, and remote control.' },
+  { icon: <HiOutlineDesktopComputer />, title: 'AI-driven Monitoring & Alerts', desc: 'Predictive maintenance and intelligent operations.' },
+  { icon: <HiOutlineCog />, title: 'ERP & API Integration', desc: 'Seamless enterprise connectivity and data flow.' },
 ];
 
 const products = [
-  {
-    title: 'Combo Vending Machines',
-    desc: 'Snack & beverage combined in one intelligent unit. Available in 3-wide, 4-wide, and 5-wide configurations.',
-    tag: 'Most Popular',
-    svg: <ComboMachineSVG width={160} height={210} />,
-  },
-  {
-    title: 'Beverage Vending Machines',
-    desc: 'Dedicated beverage dispensing with advanced cooling system and air-cooled refrigeration with R134a.',
-    tag: 'Beverages',
-    svg: <BeverageMachineSVG width={140} height={210} />,
-  },
-  {
-    title: 'Snack Vending Machines',
-    desc: 'High-capacity snack dispensing with mechanically slanted trays for easy refill and anti-theft design.',
-    tag: 'Snacks',
-    svg: <SnackMachineSVG width={150} height={210} />,
-  },
+  { title: 'Combo Vending Machines', desc: 'Snacks + beverages in one intelligent system.', tag: 'Most Popular', svg: <ComboMachineSVG width={140} height={190} /> },
+  { title: 'Snack Vending Machines', desc: 'Optimized for packaged food and FMCG.', tag: 'Snacks', svg: <SnackMachineSVG width={130} height={190} /> },
+  { title: 'Beverage Vending Machines', desc: 'Efficient cooling for drinks & dairy.', tag: 'Beverages', svg: <BeverageMachineSVG width={120} height={190} /> },
+  { title: 'Sanitary Napkin Machines', desc: 'Reliable, hygienic, and purpose-built.', tag: 'Hygiene', svg: <SanitaryMachineSVG width={140} height={190} /> },
+  { title: 'Smart AI Refrigerators', desc: 'Advanced, sensor-based automated retail.', tag: 'AI-Powered', svg: <SmartFridgeSVG width={140} height={190} /> },
+  { title: 'Custom Vending Machines', desc: 'Fully tailored to your requirement.', tag: 'Custom', svg: <CustomMachineSVG width={140} height={190} /> },
+];
+
+const techFeatures = [
+  { icon: <HiOutlineGlobe />, title: 'IoT-Based Remote Monitoring', desc: 'Track machine status, sales, and health in real time from anywhere.' },
+  { icon: <HiOutlineChip />, title: 'Smart Inventory Management', desc: 'Batch-wise tracking with expiry control and barcode integration.' },
+  { icon: <HiOutlineLightningBolt />, title: 'Advanced Electronics Reliability', desc: 'Designed to handle voltage fluctuations and harsh field conditions.' },
+  { icon: <HiOutlineCloudUpload />, title: 'Cloud Dashboard & Analytics', desc: 'Centralized control, sales reports, and operational intelligence.' },
+  { icon: <HiOutlineCreditCard />, title: 'Cashless Payment Integration', desc: 'UPI, QR, cards, POS, RFID, and digital wallets — all built in.' },
+];
+
+const differentiators = [
+  'Machine downtime',
+  'Sensor accuracy issues',
+  'Payment failures',
+  'Inventory mismatches',
+  'ERP integration complexities',
+];
+
+const industries = [
+  { icon: <HiOutlineOfficeBuilding />, title: 'Corporate Offices' },
+  { icon: <HiOutlineHeart />, title: 'Hospitals & Healthcare' },
+  { icon: <HiOutlineCube />, title: 'Manufacturing Units' },
+  { icon: <HiOutlineShoppingCart />, title: 'Public Infrastructure' },
+  { icon: <HiOutlineAcademicCap />, title: 'Educational Institutions' },
 ];
 
 const testimonials = [
-  {
-    name: 'Rajesh Sharma',
-    role: 'Operations Manager',
-    company: 'Corporate Office, Gurugram',
-    text: 'Advikon machines transformed our break room operations. The remote monitoring and smart alerts mean we never have downtime. Excellent build quality.',
-    rating: 5,
-    highlight: 'Zero downtime since deployment',
-  },
-  {
-    name: 'Priya Mehta',
-    role: 'Facility Head',
-    company: 'University Campus, Delhi',
-    text: 'We deployed 5-wide combos across our campus. The modular design made installation easy and the retrofit compatibility saved us from replacing old units.',
-    rating: 5,
-    highlight: 'Saved 60% on infrastructure costs',
-  },
-  {
-    name: 'Vikram Singh',
-    role: 'Vending Operator',
-    company: 'Multi-location, NCR',
-    text: 'The IoT dashboard gives me complete visibility across 20+ machines. Motor detection alerts have cut our maintenance costs by 40%. Truly next-gen.',
-    rating: 5,
-    highlight: '40% lower maintenance costs',
-  },
-  {
-    name: 'Anita Desai',
-    role: 'Admin Manager',
-    company: 'Hospital, Mumbai',
-    text: 'The wheelchair accessible design and smart cooling system were exactly what we needed. Advikon understood our requirements from day one.',
-    rating: 5,
-    highlight: 'Perfect for healthcare environments',
-  },
+  { name: 'Rajesh Sharma', role: 'Operations Manager', company: 'Corporate Office, Gurugram', text: 'Advikon machines transformed our break room operations. The remote monitoring and smart alerts mean we never have downtime.', rating: 5, highlight: 'Zero downtime since deployment' },
+  { name: 'Priya Mehta', role: 'Facility Head', company: 'University Campus, Delhi', text: 'We deployed 5-wide combos across our campus. The modular design made installation easy and the retrofit compatibility saved us from replacing old units.', rating: 5, highlight: 'Saved 60% on infrastructure costs' },
+  { name: 'Vikram Singh', role: 'Vending Operator', company: 'Multi-location, NCR', text: 'The IoT dashboard gives me complete visibility across 20+ machines. Motor detection alerts have cut our maintenance costs by 40%.', rating: 5, highlight: '40% lower maintenance costs' },
+  { name: 'Anita Desai', role: 'Admin Manager', company: 'Hospital, Mumbai', text: 'The wheelchair accessible design and smart cooling system were exactly what we needed. Advikon understood our requirements from day one.', rating: 5, highlight: 'Perfect for healthcare environments' },
 ];
 
 const faqs = [
-  {
-    q: 'What types of vending machines does Advikon offer?',
-    a: 'We offer Snack, Beverage, Combo, AI-based Smart Refrigerator, Sanitary Napkin, and fully Customized Machines as per client requirements.',
-  },
-  {
-    q: 'Are Advikon machines compatible with my existing infrastructure?',
-    a: 'Yes. Our machines feature plug & play compatibility of MDB devices and are designed to be retrofit-compatible — supporting multiple spiral motors, electrical systems, electronics/VMC platforms, software systems, and mechanical hardware from existing setups.',
-  },
-  {
-    q: 'What kind of remote monitoring is available?',
-    a: 'Our IoT-based system provides live machine monitoring, sales & audit reports, remote configuration, API-based integration, and cloud dashboard access.',
-  },
-  {
-    q: 'What electrical protections do the machines include?',
-    a: 'Complete protection suite: surge, shock, short circuit, overvoltage, and overload protection with FRLS-grade wiring and ISI-marked industrial grade components.',
-  },
-  {
-    q: 'What payment methods are supported?',
-    a: 'UPI, Debit & Credit Cards, Net Banking, QR codes, POS terminals, RFID, and wallet-based transactions with real-time validation and instant auto refund.',
-  },
+  { q: 'What types of vending machines does Advikon offer?', a: 'We offer Snack, Beverage, Combo, AI-based Smart Refrigerator, Sanitary Napkin, and fully Customized Machines as per client requirements.' },
+  { q: 'Are Advikon machines compatible with existing infrastructure?', a: 'Yes. Our machines feature plug & play MDB compatibility and are retrofit-ready — supporting multiple spiral motors, electrical systems, and software platforms.' },
+  { q: 'What remote monitoring capabilities are available?', a: 'Our IoT platform provides live monitoring, sales & audit reports, remote configuration, API integration, and cloud dashboard access.' },
+  { q: 'What electrical protections do the machines include?', a: 'Complete protection: surge, shock, short circuit, overvoltage, and overload protection with FRLS-grade wiring and ISI-marked components.' },
+  { q: 'What payment methods are supported?', a: 'UPI, Debit & Credit Cards, Net Banking, QR codes, POS, RFID, and wallet-based transactions with real-time validation and instant auto refund.' },
 ];
+
+/* ============================================================
+   COMPONENT
+   ============================================================ */
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -240,30 +107,33 @@ export default function Home() {
   return (
     <main>
       <SEOHead
-        title="Smart Vending Machines"
-        description="Advikon Technologies — next-generation smart vending machines with 17+ years of expertise. Modular, IoT-enabled, retrofit-compatible. 100% Made in India."
+        title="Intelligent Vending Machines | Advikon Technologies"
+        description="AI & IoT enabled vending machines built on 17+ years of real operational experience. End-to-end solutions — hardware, software, and cloud. 100% Made in India."
       />
-      {/* Hero */}
+
+      {/* ─── HERO ─── */}
       <section className="hero">
         <div className="hero-bg" />
         <div className="container hero-content">
           <div className="hero-text">
-            <span className="hero-badge" data-aos="fade-up">100% Made in India</span>
+            <span className="hero-badge" data-aos="fade-up">AI + IoT Enabled</span>
             <h1 className="hero-title" data-aos="fade-up" data-aos-delay="100">
-              Empowering the Future of{' '}
-              <span className="gradient-text">Auto Retails</span>
+              Intelligent Vending.{' '}
+              <span className="gradient-text">Engineered for the Real World.</span>
             </h1>
             <p className="hero-desc" data-aos="fade-up" data-aos-delay="200">
-              Next-generation smart vending machines engineered with 17+ years of
-              hands-on expertise. Modular, intelligent, and retrofit-compatible
-              solutions for modern retail.
+              AI & IoT enabled vending machines built on 17+ years of real operational
+              experience — delivering reliable, scalable, and future-ready automation.
+            </p>
+            <p className="hero-supporting" data-aos="fade-up" data-aos-delay="250">
+              End-to-end solutions across mechanical engineering, electronics, and cloud software.
             </p>
             <div className="hero-actions" data-aos="fade-up" data-aos-delay="300">
-              <Link to="/products" className="btn btn-primary">
-                Explore Products <HiArrowRight className="btn-arrow" />
+              <Link to="/contact" className="btn btn-primary">
+                Get a Demo <HiArrowRight className="btn-arrow" />
               </Link>
               <Link to="/contact" className="btn btn-outline">
-                Get a Quote
+                Request Proposal
               </Link>
             </div>
           </div>
@@ -278,191 +148,197 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="stats-section">
+      {/* ─── TRUST STRIP ─── */}
+      <section className="trust-strip">
         <div className="container">
-          <div className="stats-grid">
-            {stats.map((s, i) => (
-              <div key={s.label} className="stat-card" data-aos="fade-up" data-aos-delay={i * 100}>
-                <span className="stat-number">
-                  {s.prefix || ''}<CountUp end={s.number} suffix={s.suffix} />
-                </span>
-                <span className="stat-label">{s.label}</span>
+          <div className="trust-grid">
+            {trustStrip.map((t, i) => (
+              <div key={i} className="trust-item" data-aos="fade-up" data-aos-delay={i * 80}>
+                {t.number ? (
+                  <span className="trust-number"><CountUp end={t.number} suffix={t.suffix} /></span>
+                ) : null}
+                <span className="trust-label">{t.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Solutions */}
-      <section className="section solutions-section">
-        <div className="container">
-          <div className="text-center" data-aos="fade-up">
-            <span className="section-label">Our Solutions</span>
-            <h2 className="section-title">Smart Retail Ecosystem</h2>
-            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
-              End-to-end vending solutions from automated machines to enterprise-grade IoT monitoring and cashless payments.
-            </p>
-          </div>
-          <div className="solutions-grid">
-            {solutions.map((s, i) => (
-              <div key={s.title} className="solution-card" data-aos="fade-up" data-aos-delay={i * 80}>
-                <div className="solution-icon">{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Advikon + IoT */}
-      <section className="section why-iot-section">
-        <div className="container why-iot-grid">
-          <div className="why-choose-block" data-aos="fade-right">
-            <span className="section-label">Why Choose Advikon</span>
-            <h2 className="section-title">Innovation Meets Reliability</h2>
-            <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-              We don't just build machines — we build smart retail ecosystems.
-            </p>
-            <ul className="about-checklist">
-              {whyChoose.map((item) => (
-                <li key={item}><HiCheck className="check-icon" /> {item}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="iot-block" data-aos="fade-left">
-            <span className="section-label">IoT & Software</span>
-            <h3 className="iot-title">Control Everything, Anywhere</h3>
-            <ul className="about-checklist">
-              {iotFeatures.map((item) => (
-                <li key={item}><HiCheck className="check-icon" /> {item}</li>
-              ))}
-            </ul>
-            <div className="services-block">
-              <h4>Services & Support</h4>
-              <ul className="about-checklist">
-                {services.map((item) => (
-                  <li key={item}><HiCheck className="check-icon" /> {item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Technology */}
-      <section className="section tech-section">
-        <div className="container">
-          <div className="text-center" data-aos="fade-up">
-            <span className="section-label">Our Technology</span>
-            <h2 className="section-title">Core Technology Stack</h2>
-            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
-              Advikon's technology stack integrates embedded systems, IoT connectivity, cloud analytics, and digital payment infrastructure.
-            </p>
-          </div>
-          <div className="tech-grid">
-            {techStack.map((t, i) => (
-              <div key={t.title} className="tech-card" data-aos="fade-up" data-aos-delay={i * 80}>
-                <div className="tech-card-icon">{t.icon}</div>
-                <h3>{t.title}</h3>
-                <p className="tech-card-subtitle">{t.subtitle}</p>
-                <ul className="tech-card-items">
-                  {t.items.map((item) => (
-                    <li key={item}><HiCheck className="check-icon" /> {item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About Preview */}
-      <section className="section about-preview">
-        <div className="container about-preview-grid">
-          <div className="about-preview-content" data-aos="fade-right">
+      {/* ─── INTRO / POSITIONING ─── */}
+      <section className="section intro-section">
+        <div className="container intro-grid">
+          <div className="intro-content" data-aos="fade-right">
             <span className="section-label">About Advikon</span>
-            <h2 className="section-title">Built from Real Operational Challenges</h2>
+            <h2 className="section-title">Not Just Machines. A Complete Vending Ecosystem.</h2>
             <p className="section-subtitle">
-              Advikon Technologies is a next-generation vending technology company
-              with deep roots in vending operations, electronics development,
-              software architecture, and full-scale ERP integration.
+              Advikon Technologies is a next-generation vending technology company built on
+              deep, hands-on industry experience. Our foundation comes from solving real-world
+              vending challenges — from machine reliability and electronics stability to
+              inventory control and ERP integration.
+            </p>
+            <p className="intro-emphasis">
+              We design and deliver fully integrated vending systems that combine:
             </p>
             <ul className="about-checklist">
-              <li><HiCheck className="check-icon" /> Mechanical engineering + intelligent electronics + cloud software</li>
-              <li><HiCheck className="check-icon" /> Future-ready and retrofit-compatible designs</li>
-              <li><HiCheck className="check-icon" /> Engineered from field-tested operational challenges</li>
-              <li><HiCheck className="check-icon" /> Full ERP integration and inventory management</li>
+              <li><HiCheck className="check-icon" /> Precision mechanical engineering</li>
+              <li><HiCheck className="check-icon" /> Intelligent electronics</li>
+              <li><HiCheck className="check-icon" /> Cloud-based software & analytics</li>
             </ul>
             <Link to="/about" className="btn btn-dark">
               Learn More <HiArrowRight className="btn-arrow" />
             </Link>
           </div>
-          <div className="about-preview-visual" data-aos="fade-left">
+          <div className="intro-visual" data-aos="fade-left">
             <IoTDashboardSVG className="dashboard-svg" />
           </div>
         </div>
       </section>
 
-      {/* Products Preview */}
+      {/* ─── CORE OFFERING ─── */}
+      <section className="section core-section">
+        <div className="container">
+          <div className="text-center" data-aos="fade-up">
+            <span className="section-label">Core Offering</span>
+            <h2 className="section-title">End-to-End Vending Solutions</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
+              Unlike conventional manufacturers, Advikon provides complete ownership of the
+              vending ecosystem — from hardware to software, everything works seamlessly together.
+            </p>
+          </div>
+          <div className="core-grid">
+            {coreOfferings.map((c, i) => (
+              <div key={c.title} className="core-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="core-icon">{c.icon}</div>
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PRODUCTS ─── */}
       <section className="section products-preview">
         <div className="container">
           <div className="text-center" data-aos="fade-up">
             <span className="section-label">Our Products</span>
-            <h2 className="section-title">Future-Ready Smart Vending Solutions</h2>
-            <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
-              Snack, Beverage, Combo, AI-based Smart Refrigerator, Sanitary Napkin,
-              and Customized Machines as per client requirement.
-            </p>
+            <h2 className="section-title">Flexible Machines for Every Use Case</h2>
           </div>
-          <div className="products-grid">
+          <div className="products-grid-6">
             {products.map((p, i) => (
-              <div key={p.title} className="product-card" data-aos="fade-up" data-aos-delay={i * 120}>
+              <div key={p.title} className="product-card" data-aos="fade-up" data-aos-delay={i * 80}>
                 <div className="product-card-illustration">
-                  {p.svg}
+                  {p.svg || <div className="product-icon-fallback">{p.icon}</div>}
                 </div>
                 <span className="product-tag">{p.tag}</span>
                 <h3>{p.title}</h3>
                 <p>{p.desc}</p>
-                <Link to="/products" className="product-link">
-                  View Details <HiArrowRight className="btn-arrow" />
-                </Link>
               </div>
             ))}
           </div>
           <div className="text-center" style={{ marginTop: 32 }} data-aos="fade-up">
             <Link to="/products" className="btn btn-primary">
-              View All Products <HiArrowRight className="btn-arrow" />
+              Explore All Products <HiArrowRight className="btn-arrow" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="section features-section">
+      {/* ─── TECHNOLOGY ─── */}
+      <section className="section tech-section">
         <div className="container">
           <div className="text-center" data-aos="fade-up">
-            <span className="section-label">Key Features</span>
-            <h2 className="section-title">Why Choose Advikon?</h2>
+            <span className="section-label">Technology</span>
+            <h2 className="section-title">Built with Intelligence at the Core</h2>
             <p className="section-subtitle" style={{ margin: '0 auto 36px' }}>
-              Every feature is engineered from real operational challenges faced
-              in the field — not theoretical designs.
+              Our machines are powered by a robust technology stack designed for real-world operations.
             </p>
           </div>
-          <div className="features-grid">
-            {features.map((f, i) => (
-              <div key={f.title} className="feature-card" data-aos="fade-up" data-aos-delay={i * 80}>
-                <div className="feature-icon">{f.icon}</div>
-                <h3>{f.title}</h3>
-                <p>{f.desc}</p>
+          <div className="tech-grid-5">
+            {techFeatures.map((t, i) => (
+              <div key={t.title} className="tech-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="tech-card-icon">{t.icon}</div>
+                <h3>{t.title}</h3>
+                <p>{t.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* ─── DIFFERENTIATOR ─── */}
+      <section className="section diff-section">
+        <div className="container diff-grid">
+          <div data-aos="fade-right">
+            <span className="section-label">What Sets Us Apart</span>
+            <h2 className="section-title">Designed from Real Operational Experience</h2>
+            <p className="section-subtitle" style={{ maxWidth: '100%' }}>
+              What makes Advikon different is not just technology — it's experience.
+              Our systems are built from years of on-ground vending operations, solving challenges like:
+            </p>
+            <ul className="about-checklist diff-list">
+              {differentiators.map((d) => (
+                <li key={d}><HiCheck className="check-icon" /> {d}</li>
+              ))}
+            </ul>
+            <p className="diff-conclusion">
+              This ensures every machine is practical, reliable, and field-tested.
+            </p>
+          </div>
+          <div className="diff-visual" data-aos="fade-left">
+            <div className="diff-card">
+              <span className="diff-card-number">17+</span>
+              <span className="diff-card-text">Years of on-ground<br />vending experience</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FUTURE READY / RETROFIT ─── */}
+      <section className="section retrofit-home-section">
+        <div className="container">
+          <div className="retrofit-home-grid">
+            <div data-aos="fade-right">
+              <span className="section-label" style={{ background: 'rgba(0,172,193,0.15)', color: 'var(--accent-light)' }}>Future Ready</span>
+              <h2 className="section-title" style={{ color: 'var(--white)' }}>Upgrade Without Replacing</h2>
+              <p style={{ color: 'rgba(255,255,255,0.7)', lineHeight: 1.8, marginBottom: 24 }}>
+                Advikon machines are designed to be modular, retrofit-compatible, and
+                scalable across locations — allowing operators to upgrade technology
+                without replacing existing infrastructure.
+              </p>
+              <ul className="retrofit-home-list">
+                <li><HiCheck className="check-icon" /> Modular architecture</li>
+                <li><HiCheck className="check-icon" /> Retrofit-compatible with existing machines</li>
+                <li><HiCheck className="check-icon" /> Scalable across multiple locations</li>
+                <li><HiCheck className="check-icon" /> Save cost and improve efficiency</li>
+              </ul>
+            </div>
+            <div className="retrofit-home-visual" data-aos="fade-left">
+              <VendingMachineSVG className="retrofit-machine-svg" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── INDUSTRIES ─── */}
+      <section className="section industries-section">
+        <div className="container">
+          <div className="text-center" data-aos="fade-up">
+            <span className="section-label">Industries</span>
+            <h2 className="section-title">Serving Diverse Business Environments</h2>
+          </div>
+          <div className="industries-grid">
+            {industries.map((ind, i) => (
+              <div key={ind.title} className="industry-card" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="industry-icon">{ind.icon}</div>
+                <h3>{ind.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── TESTIMONIALS ─── */}
       <section className="section testimonials-section">
         <div className="container">
           <div className="testimonials-header" data-aos="fade-up">
@@ -474,9 +350,7 @@ export default function Home() {
               <div className="testimonials-avg-rating">
                 <span className="avg-rating-number">5.0</span>
                 <div className="avg-rating-stars">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <HiStar key={j} />
-                  ))}
+                  {Array.from({ length: 5 }).map((_, j) => <HiStar key={j} />)}
                 </div>
                 <span className="avg-rating-label">Average Rating</span>
               </div>
@@ -489,16 +363,12 @@ export default function Home() {
                   <div className="t-card-top">
                     <div className="t-card-highlight">{t.highlight}</div>
                     <div className="t-card-stars">
-                      {Array.from({ length: t.rating }).map((_, j) => (
-                        <HiStar key={j} />
-                      ))}
+                      {Array.from({ length: t.rating }).map((_, j) => <HiStar key={j} />)}
                     </div>
                   </div>
                   <p className="t-card-text">&ldquo;{t.text}&rdquo;</p>
                   <div className="t-card-author">
-                    <div className="t-card-avatar">
-                      {t.name.split(' ').map(n => n[0]).join('')}
-                    </div>
+                    <div className="t-card-avatar">{t.name.split(' ').map(n => n[0]).join('')}</div>
                     <div className="t-card-info">
                       <span className="t-card-name">{t.name}</span>
                       <span className="t-card-role">{t.role}</span>
@@ -512,31 +382,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Made in India */}
-      <section className="section made-india-section">
-        <div className="container made-india-grid">
-          <div data-aos="fade-right">
-            <span className="section-label">Quality Assurance</span>
-            <h2 className="section-title">Proudly Made in India</h2>
-            <p className="section-subtitle" style={{ maxWidth: '100%' }}>
-              Every Advikon machine is designed, engineered, and manufactured in India.
-              From ISI-marked industrial cables to FRLS-grade wiring, we use only
-              the highest quality components meeting Indian electrical safety standards.
-            </p>
-            <ul className="about-checklist">
-              <li><HiCheck className="check-icon" /> ISI Marked Industrial Grade Components</li>
-              <li><HiCheck className="check-icon" /> Class I Earthed Appliance Protection</li>
-              <li><HiCheck className="check-icon" /> FRLS (Flame Retardant Low Smoke) Wiring</li>
-              <li><HiCheck className="check-icon" /> Complete Electrical Safety Certification</li>
-            </ul>
-          </div>
-          <div className="made-india-visual" data-aos="fade-left">
-            <MadeInIndiaSVG width={280} height={190} />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* ─── FAQ ─── */}
       <section className="section faq-section">
         <div className="container faq-layout">
           <div className="faq-left" data-aos="fade-right">
@@ -551,22 +397,14 @@ export default function Home() {
           </div>
           <div className="faq-right" data-aos="fade-up">
             {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className={`faq-item ${openFaq === i ? 'open' : ''}`}
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-              >
+              <div key={i} className={`faq-item ${openFaq === i ? 'open' : ''}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                 <div className="faq-question">
                   <div className="faq-num">{String(i + 1).padStart(2, '0')}</div>
                   <span>{faq.q}</span>
-                  <div className="faq-toggle">
-                    <span className="faq-toggle-icon" />
-                  </div>
+                  <div className="faq-toggle"><span className="faq-toggle-icon" /></div>
                 </div>
                 <div className="faq-answer">
-                  <div className="faq-answer-inner">
-                    <p>{faq.a}</p>
-                  </div>
+                  <div className="faq-answer-inner"><p>{faq.a}</p></div>
                 </div>
               </div>
             ))}
@@ -574,19 +412,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ─── CTA ─── */}
       <section className="cta-section">
         <div className="container text-center" data-aos="fade-up">
-          <h2>Ready to Upgrade Your Vending Operations?</h2>
-          <p>
-            Partner with Advikon for intelligent, reliable, and future-ready vending solutions.
-          </p>
+          <h2>Ready to Modernize Your Vending Operations?</h2>
+          <p>Partner with Advikon to deploy intelligent, scalable, and future-ready vending solutions.</p>
           <div className="cta-actions">
             <Link to="/contact" className="btn btn-primary">
-              Contact Us <HiArrowRight className="btn-arrow" />
+              Get a Demo <HiArrowRight className="btn-arrow" />
             </Link>
-            <Link to="/products" className="btn btn-outline">
-              Explore Products
+            <Link to="/contact" className="btn btn-outline">
+              Talk to Our Experts
             </Link>
           </div>
         </div>

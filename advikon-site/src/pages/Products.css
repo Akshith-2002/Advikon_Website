@@ -166,23 +166,19 @@
   border-color: rgba(21, 101, 192, 0.2);
 }
 
-.additional-icon {
-  width: 56px;
-  height: 56px;
-  background: rgba(21, 101, 192, 0.08);
-  border-radius: 14px;
+.additional-visual {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: var(--primary);
-  margin-bottom: 16px;
-  transition: all 0.3s ease;
+  align-items: center;
+  padding: 12px 0;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.04), rgba(0, 172, 193, 0.04));
+  border-radius: var(--radius);
 }
 
-.additional-card:hover .additional-icon {
-  background: var(--gradient-primary);
-  color: var(--white);
+.additional-visual svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .additional-card h3 {

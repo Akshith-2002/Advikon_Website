@@ -14,6 +14,9 @@ import {
 import ComboMachineSVG from '../assets/ComboMachineSVG';
 import BeverageMachineSVG from '../assets/BeverageMachineSVG';
 import SnackMachineSVG from '../assets/SnackMachineSVG';
+import SmartFridgeSVG from '../assets/SmartFridgeSVG';
+import SanitaryMachineSVG from '../assets/SanitaryMachineSVG';
+import CustomMachineSVG from '../assets/CustomMachineSVG';
 import './Products.css';
 
 const machines = [
@@ -78,17 +81,17 @@ const additionalMachines = [
   {
     title: 'AI-Based Smart Refrigerator',
     desc: 'AI-powered smart cooling with intelligent inventory management and predictive restocking.',
-    icon: <HiOutlineChip />,
+    svg: <SmartFridgeSVG width={180} height={230} />,
   },
   {
     title: 'Sanitary Napkin Vending Machine',
     desc: 'Compact, reliable dispenser designed for schools, colleges, offices, and public facilities.',
-    icon: <HiOutlineCube />,
+    svg: <SanitaryMachineSVG width={180} height={230} />,
   },
   {
     title: 'Customized Machines',
     desc: 'Tailor-made vending solutions designed and built as per specific client requirements.',
-    icon: <HiOutlineCog />,
+    svg: <CustomMachineSVG width={180} height={230} />,
   },
 ];
 
@@ -196,7 +199,7 @@ export default function Products() {
           <div className="additional-grid">
             {additionalMachines.map((m, i) => (
               <div key={m.title} className="additional-card" data-aos="fade-up" data-aos-delay={i * 100}>
-                <div className="additional-icon">{m.icon}</div>
+                <div className="additional-visual">{m.svg}</div>
                 <h3>{m.title}</h3>
                 <p>{m.desc}</p>
                 <Link to="/contact" className="product-link">
