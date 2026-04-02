@@ -176,13 +176,6 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="contact-person-card">
-              <div className="contact-person-avatar">PK</div>
-              <div>
-                <span className="contact-person-name">Pankaj Kumar</span>
-                <span className="contact-person-role">Founder, Advikon Technologies</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
