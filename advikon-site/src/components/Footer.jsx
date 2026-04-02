@@ -49,8 +49,8 @@ export default function Footer() {
             <a href="tel:+919717690156" className="ft-contact-item">
               <HiPhone /> +91 97176 90156
             </a>
-            <a href="mailto:pankaj.kumar@advikon.in" className="ft-contact-item">
-              <HiMail /> pankaj.kumar@advikon.in
+            <a href="mailto:info@advikon.in" className="ft-contact-item">
+              <HiMail /> info@advikon.in
             </a>
             <span className="ft-contact-item">
               <HiLocationMarker /> Sector 11, Gurugram 122001

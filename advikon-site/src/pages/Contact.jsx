@@ -19,8 +19,8 @@ const contactInfo = [
   {
     icon: <HiMail />,
     label: 'Email',
-    value: 'pankaj.kumar@advikon.in',
-    href: 'mailto:pankaj.kumar@advikon.in',
+    value: 'info@advikon.in',
+    href: 'mailto:info@advikon.in',
   },
   {
     icon: <HiLocationMarker />,
@@ -50,7 +50,7 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:pankaj.kumar@advikon.in?subject=Inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:info@advikon.in?subject=Inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCompany: ${form.company}\n\nMessage:\n${form.message}`
     )}`;
     window.location.href = mailtoLink;
