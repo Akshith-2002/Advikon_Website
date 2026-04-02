@@ -35,7 +35,7 @@ const machines = [
       { label: 'Cooling', value: 'Compressor-based refrigeration' },
       { label: 'Power', value: '300W – 750W' },
       { label: 'Supply', value: '220–240V AC, 50Hz, 5 Amp' },
-      { label: 'Weight', value: '250 – 400 kgs' },
+      { label: 'Weight', value: '300 kgs' },
     ],
   },
   {

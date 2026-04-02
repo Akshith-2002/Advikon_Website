@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import {
   HiOutlineChip,
-  HiOutlineShieldCheck,
   HiOutlineCog,
   HiOutlineCloudUpload,
   HiOutlineLightningBolt,
@@ -17,7 +16,6 @@ import {
   HiOutlineShoppingCart,
   HiArrowRight,
   HiCheck,
-  HiStar,
 } from 'react-icons/hi';
 import VendingMachineSVG from '../assets/VendingMachineSVG';
 import IoTDashboardSVG from '../assets/IoTDashboardSVG';
@@ -80,13 +78,6 @@ const industries = [
   { icon: <HiOutlineCube />, title: 'Manufacturing Units' },
   { icon: <HiOutlineShoppingCart />, title: 'Public Infrastructure' },
   { icon: <HiOutlineAcademicCap />, title: 'Educational Institutions' },
-];
-
-const testimonials = [
-  { name: 'Rajesh Sharma', role: 'Operations Manager', company: 'Corporate Office, Gurugram', text: 'Advikon machines transformed our break room operations. The remote monitoring and smart alerts mean we never have downtime.', rating: 5, highlight: 'Zero downtime since deployment' },
-  { name: 'Priya Mehta', role: 'Facility Head', company: 'University Campus, Delhi', text: 'We deployed 5-wide combos across our campus. The modular design made installation easy and the retrofit compatibility saved us from replacing old units.', rating: 5, highlight: 'Saved 60% on infrastructure costs' },
-  { name: 'Vikram Singh', role: 'Vending Operator', company: 'Multi-location, NCR', text: 'The IoT dashboard gives me complete visibility across 20+ machines. Motor detection alerts have cut our maintenance costs by 40%.', rating: 5, highlight: '40% lower maintenance costs' },
-  { name: 'Anita Desai', role: 'Admin Manager', company: 'Hospital, Mumbai', text: 'The wheelchair accessible design and smart cooling system were exactly what we needed. Advikon understood our requirements from day one.', rating: 5, highlight: 'Perfect for healthcare environments' },
 ];
 
 const faqs = [
@@ -338,49 +329,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS ─── */}
-      <section className="section testimonials-section">
-        <div className="container">
-          <div className="testimonials-header" data-aos="fade-up">
-            <div className="testimonials-header-text">
-              <span className="section-label">Testimonials</span>
-              <h2 className="section-title">Trusted by Operators<br />Across India</h2>
-            </div>
-            <div className="testimonials-header-stat">
-              <div className="testimonials-avg-rating">
-                <span className="avg-rating-number">5.0</span>
-                <div className="avg-rating-stars">
-                  {Array.from({ length: 5 }).map((_, j) => <HiStar key={j} />)}
-                </div>
-                <span className="avg-rating-label">Average Rating</span>
-              </div>
-            </div>
-          </div>
-          <div className="testimonials-marquee" data-aos="fade-up" data-aos-delay="150">
-            <div className="testimonials-track">
-              {[...testimonials, ...testimonials].map((t, i) => (
-                <div key={i} className="t-card">
-                  <div className="t-card-top">
-                    <div className="t-card-highlight">{t.highlight}</div>
-                    <div className="t-card-stars">
-                      {Array.from({ length: t.rating }).map((_, j) => <HiStar key={j} />)}
-                    </div>
-                  </div>
-                  <p className="t-card-text">&ldquo;{t.text}&rdquo;</p>
-                  <div className="t-card-author">
-                    <div className="t-card-avatar">{t.name.split(' ').map(n => n[0]).join('')}</div>
-                    <div className="t-card-info">
-                      <span className="t-card-name">{t.name}</span>
-                      <span className="t-card-role">{t.role}</span>
-                      <span className="t-card-company">{t.company}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ─── TESTIMONIALS — will be added once initial clients provide feedback ─── */}
 
       {/* ─── FAQ ─── */}
       <section className="section faq-section">
