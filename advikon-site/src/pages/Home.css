@@ -167,7 +167,7 @@
   justify-content: center;
   font-size: 1.3rem;
   color: var(--primary);
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
 }
 
 .trust-number {
