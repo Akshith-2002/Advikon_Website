@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import {
   HiOutlineChip,
+  HiOutlineShieldCheck,
   HiOutlineCog,
   HiOutlineCloudUpload,
   HiOutlineLightningBolt,
@@ -14,6 +15,7 @@ import {
   HiOutlineHeart,
   HiOutlineAcademicCap,
   HiOutlineShoppingCart,
+  HiOutlineFlag,
   HiArrowRight,
   HiCheck,
 } from 'react-icons/hi';
@@ -33,10 +35,10 @@ import './Home.css';
    ============================================================ */
 
 const trustStrip = [
-  { number: 17, suffix: '+', label: 'Years Vending Expertise' },
-  { label: 'Designed & Manufactured in India' },
-  { label: 'AI + IoT Enabled Systems' },
-  { label: 'End-to-End Solution Provider' },
+  { number: 17, suffix: '+', label: 'Years Vending Expertise', icon: <HiOutlineShieldCheck /> },
+  { label: 'Designed & Manufactured in India', icon: <HiOutlineFlag /> },
+  { label: 'AI + IoT Enabled Systems', icon: <HiOutlineChip /> },
+  { label: 'End-to-End Solution Provider', icon: <HiOutlineCube /> },
 ];
 
 const coreOfferings = [
@@ -145,6 +147,7 @@ export default function Home() {
           <div className="trust-grid">
             {trustStrip.map((t, i) => (
               <div key={i} className="trust-item" data-aos="fade-up" data-aos-delay={i * 80}>
+                <div className="trust-icon">{t.icon}</div>
                 {t.number ? (
                   <span className="trust-number"><CountUp end={t.number} suffix={t.suffix} /></span>
                 ) : null}
