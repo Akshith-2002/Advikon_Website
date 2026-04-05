@@ -11,7 +11,7 @@ import {
   HiOutlineCog,
   HiCheck,
 } from 'react-icons/hi';
-import ComboMachineSVG from '../assets/ComboMachineSVG';
+import comboMachineImg from '../assets/advikon-combo-machine.jpeg';
 import BeverageMachineSVG from '../assets/BeverageMachineSVG';
 import SnackMachineSVG from '../assets/SnackMachineSVG';
 import SmartFridgeSVG from '../assets/SmartFridgeSVG';
@@ -21,7 +21,7 @@ import './Products.css';
 
 const machines = [
   {
-    svg: <ComboMachineSVG width={240} height={310} />,
+    img: comboMachineImg,
     title: 'Combo Vending Machine',
     subtitle: 'Snack & Beverage Combined',
     desc: 'Our most versatile unit — dispenses both snacks and beverages from a single intelligent machine. Ideal for corporate offices, hospitals, universities, and high-traffic locations.',
@@ -177,7 +177,9 @@ export default function Products() {
                 </div>
                 <div className="machine-visual">
                   <div className="machine-visual-box">
-                    {m.svg}
+                    {m.img ? (
+                      <img src={m.img} alt={m.title} className="machine-photo" />
+                    ) : m.svg}
                   </div>
                 </div>
               </div>
